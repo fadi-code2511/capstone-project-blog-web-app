@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "name": "capstone-project-blog-web-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadi-code2511/capstone-project-blog-web-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/fadi-code2511/capstone-project-blog-web-app/issues"
+  },
+  "homepage": "https://github.com/fadi-code2511/capstone-project-blog-web-app#readme"
+}
