@@ -20,7 +20,7 @@ app.get("/create-post",(req,res)=>{
 app.post("/",(req,res)=>{
     posts.push({
         title:req.body["title"],
-        post:req.body["post"]
+        content:req.body["content"]
     })
     console.log(posts)
     res.redirect("/");
@@ -30,11 +30,22 @@ app.get("/view-post",(req,res)=>{
     res.render("view-post.ejs",{ posts: posts });
 })
 
-app.post("/delete-post:id",(req,res)=>{
+app.post("/delete-post/:id",(req,res)=>{
     const id=req.params.id;
     posts.splice(id,1);
     res.redirect("/view-post")
 })
+
+
+
+// 
+app.post("/update/:id", (req, res) => {
+  const id = req.params.id;
+  posts[id].title = req.body.title;
+  posts[id].content = req.body.editedContent;
+  res.redirect("/view-post");
+});
+// 
 
 app.listen(port,()=>{
     console.log(`the server listening on port ${port}`);

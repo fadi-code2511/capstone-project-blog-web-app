@@ -1,14 +1,49 @@
 <%- include("partials/header.ejs") %>
 <body>
     <% if (posts.length>0) {%>
-        <% posts.forEach((element,index) => {%>
-            <h1> <%= element.title  %></h1>
-            <p> <%= element.post  %></p>
-            <form action="/delete-post<%= index %> " method="post" >
-                <button type="submit">delete post</button>
-            </form>
+       <ul>
+  <% posts.forEach((post, index) => { %>
+    <li id="post-<%= index %>">
+
+      <div class="view-mode">
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
+        <button onclick="enableEdit(<%= index %>)">Edit</button>
+
+        <form action="/delete-post/<%= index %>" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+<!--  -->
+            <div class="edit-mode" style="display:none;">
+        <form action="/update/<%= index %>" method="POST">
+          <input type="text" name="title" value="<%= post.title %>">
+          <textarea name="editedContent"><%= post.content %></textarea>
+          <button type="submit">Save</button>
+          <button type="button" onclick="cancelEdit(<%= index %>)">Cancel</button>
+        </form>
+      </div>
+
+<!--  -->
+
     <%  }); } else {%>
         <p> no posts yet</p>
     <% } %>
+
+    
+
+<!--  -->
+    <script>
+function enableEdit(id) {
+  document.querySelector(`#post-${id} .view-mode`).style.display = "none";
+  document.querySelector(`#post-${id} .edit-mode`).style.display = "block";
+}
+
+function cancelEdit(id) {
+  document.querySelector(`#post-${id} .edit-mode`).style.display = "none";
+  document.querySelector(`#post-${id} .view-mode`).style.display = "block";
+}
+</script>
+<!--  -->
 </body>
 </html>
