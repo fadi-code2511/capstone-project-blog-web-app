@@ -1,21 +1,16 @@
 <%- include("partials/header.ejs") %>
 <body>
-    <h1>hello from fadi</h1>
-    <form action="/creat-post" method="post">
-        <h2>Create New Post</h2>
-
-    <!-- The 'action' attribute specifies the URL where the form data will be sent for processing -->
-    <!-- The 'method' attribute is set to 'POST' for submitting data that changes the server state (like creating a new post) -->
-    <form action="/create-post" method="POST">
+    <h2>Create New Post</h2>
+    <form action="/" method="POST">
         <div>
             <label for="title">Title</label>
             <br>
-            <input type="text" required >
+            <input type="text" required name="title" >
         </div>
         <div>
-            <label for="title">new post</label>
+            <label for="textarea">new post</label>
             <br>
-            <textarea name="textarea" id=""  required></textarea>
+            <textarea name="post" id=""  required></textarea>
         </div>
         <div>
             <input type="submit"  >
