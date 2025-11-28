@@ -1,8 +1,14 @@
+<%- include("partials/header.ejs") %>
 <body>
-    <% posts.forEach(element => {%>
-        <h1> <%= element.title  %></h1>
-        <p> <%= element.post  %></p>
-   <%  }); %>
-   
+    <% if (posts.length>0) {%>
+        <% posts.forEach((element,index) => {%>
+            <h1> <%= element.title  %></h1>
+            <p> <%= element.post  %></p>
+            <form action="/delete-post<%= index %> " method="post" >
+                <button type="submit">delete post</button>
+            </form>
+    <%  }); } else {%>
+        <p> no posts yet</p>
+    <% } %>
 </body>
 </html>

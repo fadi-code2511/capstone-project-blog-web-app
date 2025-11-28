@@ -6,7 +6,7 @@ const port=3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let posts=[];  // array used here because we dont have a database.
+let posts=[];  // array used here because we are not using a database.
 // console.log(posts)
 
 app.get("/",(req,res)=>{
@@ -28,6 +28,12 @@ app.post("/",(req,res)=>{
 
 app.get("/view-post",(req,res)=>{
     res.render("view-post.ejs",{ posts: posts });
+})
+
+app.post("/delete-post:id",(req,res)=>{
+    const id=req.params.id;
+    posts.splice(id,1);
+    res.redirect("/view-post")
 })
 
 app.listen(port,()=>{
