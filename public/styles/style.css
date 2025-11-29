@@ -95,3 +95,28 @@ label{
     flex-direction: column;
     gap: 5px;
 }
+
+.nav-container{
+    display: flex;
+    height: 40px;
+    background-color:hsl(45, 61%, 88%);
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.a-nav{
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    border: 2px solid  #8a8888;
+    padding: 3px;
+    font-family: cursive;
+
+}
+
+.pre-blog{
+    color: #313030;
+    text-indent: 5px;
+    font-size: 17px;
+}
