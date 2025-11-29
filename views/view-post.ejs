@@ -20,10 +20,17 @@
       
               <div class="edit-mode" style="display:none;">
                 <form action="/update/<%= index %>" method="POST">
-                  <input type="text" name="title" value="<%= post.title %>">
-                  <textarea name="editedContent"><%= post.content %></textarea>
-                  <button type="submit"  class="btn">Save</button>
-                  <button type="button" onclick="cancelEdit(<%= index %>)" class="btn">Cancel</button>
+                  <div class="edit-container">
+                    <label>Blog title: </label>
+                    <input type="text" name="title" value="<%= post.title %>">
+                    <label>Blog content: </label>
+                    <textarea name="editedContent"><%= post.content %></textarea>
+                    <div >
+                      <button type="submit"  class="btn">Save</button>
+                      <button type="button" onclick="cancelEdit(<%= index %>)" class="btn">Cancel</button>
+                    </div>
+                    
+                  </div>
                 </form>
               </div>
               </li>

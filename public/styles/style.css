@@ -23,7 +23,6 @@ textarea{
     background-image:  url("./assets/images/hero-image.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-    /* padding: 50px; */
 }
 
 .from-p{
@@ -89,4 +88,10 @@ label{
 
 .create-btn{
     background-color: #CF4B00;
+}
+
+.edit-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
