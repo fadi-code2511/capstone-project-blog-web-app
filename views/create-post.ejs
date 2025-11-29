@@ -1,21 +1,26 @@
 <%- include("partials/header.ejs") %>
 <body>
-    <h2>Create New Post</h2>
-    <form action="/" method="POST">
-        <div>
-            <label for="title">Title</label>
-            <br>
-            <input type="text" required name="title" >
+    <div class="hero-section">
+        <div class="container">
+            <h1>Create New Post</h1>
+            <form action="/" method="POST">
+                <div>
+                    <label for="title">Title</label>
+                    <br>
+                    <input type="text" required name="title" >
+                </div>
+                <div>
+                    <label for="textarea">new post</label>
+                    <br>
+                    <textarea name="content" id=""  required></textarea>
+                </div>
+                <div>
+                    <input type="submit" class="btn" >
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="textarea">new post</label>
-            <br>
-            <textarea name="content" id=""  required></textarea>
-        </div>
-        <div>
-            <input type="submit"  >
-        </div>
-    </form>
+    </div>
+    
     
 </body>
 </html>

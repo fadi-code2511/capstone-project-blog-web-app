@@ -1,6 +1,12 @@
 <%- include("partials/header.ejs") %>
 <body>
     <% if (posts.length>0) {%>
+
+
+    <div class="hero-section">
+      <div class="container">
+
+        
        <ul>
   <% posts.forEach((post, index) => { %>
     <li id="post-<%= index %>">
@@ -8,10 +14,10 @@
       <div class="view-mode">
         <h3><%= post.title %></h3>
         <p><%= post.content %></p>
-        <button onclick="enableEdit(<%= index %>)">Edit</button>
+        <button onclick="enableEdit(<%= index %>)" class="btn">Edit</button>
 
         <form action="/delete-post/<%= index %>" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
+          <button type="submit" class="btn">Delete</button>
         </form>
       </div>
 <!--  -->
@@ -19,10 +25,17 @@
         <form action="/update/<%= index %>" method="POST">
           <input type="text" name="title" value="<%= post.title %>">
           <textarea name="editedContent"><%= post.content %></textarea>
-          <button type="submit">Save</button>
-          <button type="button" onclick="cancelEdit(<%= index %>)">Cancel</button>
+          <button type="submit"  class="btn">Save</button>
+          <button type="button" onclick="cancelEdit(<%= index %>)" class="btn">Cancel</button>
         </form>
       </div>
+
+        
+
+      </div>
+    </div>
+
+
 
 <!--  -->
 
