@@ -10,7 +10,7 @@
             <li id="post-<%= index %>">
               <div class="view-mode">
                 <h3>Blog title: <%= post.title %></h3>
-                <p><%= post.content %></p>
+                <pre class="pre-blog"><%= post.content %></pre>
                 <button onclick="enableEdit(<%= index %>)" class="btn">Edit</button>
                 <form action="/delete-post/<%= index %>" method="POST" style="display:inline;">
                   <button type="submit" class="btn">Delete</button>
