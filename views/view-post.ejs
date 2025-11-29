@@ -1,8 +1,6 @@
 <%- include("partials/header.ejs") %>
 <body>
     <% if (posts.length>0) {%>
-
-
     <div class="hero-section">
       <div class="container-view ">
           <ul>
@@ -24,7 +22,7 @@
                     <label>Blog title: </label>
                     <input type="text" name="title" value="<%= post.title %>">
                     <label>Blog content: </label>
-                    <textarea name="editedContent"><%= post.content %></textarea>
+                    <textarea name="editedContent" class="text-area-width"><%= post.content %></textarea>
                     <div >
                       <button type="submit"  class="btn">Save</button>
                       <button type="button" onclick="cancelEdit(<%= index %>)" class="btn">Cancel</button>
