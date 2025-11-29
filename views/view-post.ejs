@@ -1,0 +1,64 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <% if (posts.length>0) {%>
+
+
+    <div class="hero-section">
+      <div class="container-view ">
+          <ul>
+          <% posts.forEach((post, index) => { %>
+            <li id="post-<%= index %>">
+              <div class="view-mode">
+                <h3>Blog title: <%= post.title %></h3>
+                <p><%= post.content %></p>
+                <button onclick="enableEdit(<%= index %>)" class="btn">Edit</button>
+                <form action="/delete-post/<%= index %>" method="POST" style="display:inline;">
+                  <button type="submit" class="btn">Delete</button>
+                </form>
+                <hr>
+              </div>
+      
+              <div class="edit-mode" style="display:none;">
+                <form action="/update/<%= index %>" method="POST">
+                  <div class="edit-container">
+                    <label>Blog title: </label>
+                    <input type="text" name="title" value="<%= post.title %>">
+                    <label>Blog content: </label>
+                    <textarea name="editedContent"><%= post.content %></textarea>
+                    <div >
+                      <button type="submit"  class="btn">Save</button>
+                      <button type="button" onclick="cancelEdit(<%= index %>)" class="btn">Cancel</button>
+                    </div>
+                    
+                  </div>
+                </form>
+              </div>
+              </li>
+    <% }); %>
+          </ul>
+      </div>
+    </div>
+    <%   } else {%>
+      <div class="hero-section">
+        <div class="container">
+          <p> 🤷No posts yet, Create a post and come back🗒️</p>
+        </div>
+      </div>  
+    <% } %>
+
+
+<!--  -->
+    <script>
+function enableEdit(id) {
+  document.querySelector(`#post-${id} .view-mode`).style.display = "none";
+  document.querySelector(`#post-${id} .edit-mode`).style.display = "block";
+}
+
+function cancelEdit(id) {
+  document.querySelector(`#post-${id} .edit-mode`).style.display = "none";
+  document.querySelector(`#post-${id} .view-mode`).style.display = "block";
+}
+</script>
+<!--  -->
+</body>
+</html>
